@@ -1,3 +1,3 @@
 import {RequestHandler} from 'express'
 
-export function asyncWrapper(fn: RequestHandler);
+export function AsyncWrapper(fn: RequestHandler);

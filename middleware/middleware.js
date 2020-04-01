@@ -1,5 +1,5 @@
-const CommonMiddlewar = require('./common')
+const CommonMiddleware = require('./common')
 
 module.exports = function Middleware(app) {
-  CommonMiddlewar(app)
+  CommonMiddleware(app)
 }

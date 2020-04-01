@@ -1,9 +1,10 @@
 const express = require('express')
 const dotenv = require('dotenv')
 
+const Middleware = require('./middleware/middleware')
+
 const PlansController = require('./controllers/plans-controller')
 const SubscriptionsController = require('./controllers/subscriptions-controller')
-const Middleware = require('./middleware/middleware')
 
 dotenv.config()
 const PORT = process.env.PORT || 3000

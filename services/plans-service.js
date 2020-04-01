@@ -6,7 +6,7 @@ module.exports = class PlansService {
   
   }
   async create(plan){
-  
+    return plan
   }
   async deleteOne(id){
   
