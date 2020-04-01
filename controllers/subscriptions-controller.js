@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const asyncWrapper = require('../util/asyncWrapper')
+const asyncWrapper = require('../util/asyncWrapper').asyncWrapper
 const SubscriptionsService = require('../services/plans-service')
 
 const subscriptionsService = new SubscriptionsService()
