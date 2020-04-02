@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     cardNumber: DataTypes.STRING,
     holderName: DataTypes.STRING,
     expDate: DataTypes.STRING,
-    css: DataTypes.STRING,
+    cvv: DataTypes.STRING,
     userId: DataTypes.INTEGER,
   }, {});
   Subscription.associate = function(models) {

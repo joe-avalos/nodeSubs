@@ -1,4 +1,4 @@
-const Subscription = require('../models/index')['Subscription']
+const Subscription = require('../models')['Subscription']
 
 module.exports = class SubscriptionsService {
   async findAll(userId) {

@@ -1,4 +1,4 @@
-const Plan = require('../models/index')['Plan']
+const Plan = require('../models')['Plan']
 
 module.exports = class PlansService {
   async findAll(userId) {

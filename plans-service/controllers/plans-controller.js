@@ -1,8 +1,8 @@
 const router = require('express').Router()
 
-const asyncWrapper = require('../util/asyncWrapper').AsyncWrapper
+const asyncWrapper = require('../../util/asyncWrapper').AsyncWrapper
 const PlansService = require('../services/plans-service')
-const validator = require('../middleware/validator')
+const validator = require('../../middleware/validator')
 
 const plansService = new PlansService()
 

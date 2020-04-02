@@ -1,6 +1,6 @@
 const Joi = require('joi')
-const Subscription = require('../models/subscription')
-const Plan = require('../models/plan')
+const Subscription = require('../subscriptions-service/models/subscription')
+const Plan = require('../plans-service/models/plan')
 const ValidationError = require('../errors/validation-errors')
 
 "use strict"

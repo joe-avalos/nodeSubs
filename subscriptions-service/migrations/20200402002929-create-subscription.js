@@ -27,7 +27,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      css: {
+      cvv: {
         type: Sequelize.STRING,
         allowNull: false,
       },
