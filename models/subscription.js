@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
     cardNumber: DataTypes.STRING,
     holderName: DataTypes.STRING,
     expDate: DataTypes.STRING,
-    css: DataTypes.STRING
+    css: DataTypes.STRING,
+    userId: DataTypes.INTEGER,
   }, {});
   Subscription.associate = function(models) {
     // associations can be defined here
@@ -24,5 +25,5 @@ module.exports.SubscriptionValidationSchema = Joi.object().keys({
   holderName: Joi.string().alphanum().required(),
   expDate: Joi.string().required(),
   cvv: Joi.string().min(3).max(3).required(),
-  //userId: Joi.number().positive().required()
+  userId: Joi.number().positive().required(),
 })

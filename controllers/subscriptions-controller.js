@@ -1,13 +1,13 @@
 const router = require('express').Router()
 
 const asyncWrapper = require('../util/asyncWrapper').AsyncWrapper
-const SubscriptionsService = require('../services/plans-service')
+const SubscriptionsService = require('../services/subscriptions-service')
 
 const subscriptionsService = new SubscriptionsService()
 
 // GET /api/subscriptions
 router.get('/', asyncWrapper(async (req, res) => {
-  let userId = null
+  let userId = 1
   let subscriptions = await subscriptionsService.findAll(userId)
   res.send(subscriptions)
 }))
