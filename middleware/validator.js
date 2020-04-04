@@ -1,27 +1,34 @@
 const Joi = require('joi')
 const Subscription = require('../subscriptions-service/models/subscription')
 const Plan = require('../plans-service/models/plan')
+const User = require('../auth-service/models/user')
 const ValidationError = require('../errors/validation-errors')
 
-"use strict"
+'use strict'
 
 let validators = {
-  "Subscription": {
+  'Subscription': {
     scopes: {
       default: Subscription.SubscriptionValidationSchema,
     },
   },
-  "Plan": {
+  'Plan': {
     scopes: {
       default: Plan.PlanValidationSchema,
     },
   },
+  'User': {
+    scopes: {
+      default: User.UserValidationSchema,
+      login: User.LoginValidationSchema,
+    }
+  }
 }
 
 // scopeExists(validators.Subscription, 'default') --> true
 // scopeExists(validators.Subscription, 'update') --> false
 function scopeExists(validator, scope) {
-  return Object.keys(validator.scopes.find(key => key === scope)) !== undefined
+  return Object.keys(validator.scopes).find(key => key === scope) !== undefined
 }
 
 function getSchema(model, scope) {

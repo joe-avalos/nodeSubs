@@ -8,12 +8,17 @@ apiEndpoints:
   subscriptions-service:
     host: "*"
     paths: ["/api/subscriptions/*", "/api/subscriptions"]
+  auth-service:
+    host: "*"
+    paths: ["/api/auth/*","/api/auth"]
 serviceEndpoints:
 # see: http://www.express-gateway.io/docs/configuration/gateway.config.yml/serviceEndpoints
   plans-service-endpoint:
     url: http://localhost:3001/
   subscriptions-service-endpoint:
     url: http://localhost:3002/
+  auth-service-endpoint:
+    url: http://localhost:3003/
 policies:
   - proxy
 pipelines:
@@ -34,5 +39,14 @@ pipelines:
       - proxy:
           action:
             serviceEndpoint: subscriptions-service-endpoint
+            changeOrigin: true
+            stripPath: true
+  auth-service-pipeline:
+    apiEndpoints:
+      - auth-service
+    policies:
+      - proxy:
+          action:
+            serviceEndpoint: auth-service-endpoint
             changeOrigin: true
             stripPath: true

@@ -1,4 +1,4 @@
-const User = require('../models/user')['User']
+const User = require('../models')['User']
 const jwt = require('jsonwebtoken')
 const PasswordHasher = require('./password-hasher')
 
@@ -9,7 +9,7 @@ module.exports = class UsersService {
   
   async create(user){
     user.password = await this.passwordHasher.hash(user.password)
-    user = User.create(user)
+    user = await User.create(user)
     return this.generateAccessToken(user)
   }
   

@@ -1,5 +1,3 @@
-const Joi = require('joi')
-
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -40,10 +38,3 @@ module.exports = {
     return queryInterface.dropTable('Users');
   }
 };
-
-module.exports.UserValidationSchema = Joi.object().keys({
-  firstName: Joi.string().required(),
-  lastName: Joi.string().required(),
-  email: Joi.string().email().required(),
-  password: Joi.string().required().min(6).max(32)
-})

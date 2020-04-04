@@ -1,6 +1,9 @@
-const AMQP_CONNECTION_STRING = 'amqp://vactnhwt:mcsL6Tiia5H1LsRZiwltWQRJXjoyhoUK@termite.rmq.cloudamqp.com/vactnhwt'
+const AMQP_CONNECTION_STRING = **AMPQ url**
 const AMQP_CHANNEL_NAME = 'PAYMENTS_GATEWAY'
 const AMQP_QUEUE_NAME = 'PAYMENTS_QUEUE'
+
+const TOKEN_ISSUER = 'saas'
+const AUTH_SECRET = 'thisisnotsosecret''
 
 module.exports = {
   apps: [

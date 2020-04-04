@@ -6,7 +6,7 @@ module.exports = class PasswordHasher {
   }
   
   async hash(password){
-    return await bcrypt.hash(password)
+    return await bcrypt.hash(password, this.rounds)
   }
   
   async compare(password, hash){
