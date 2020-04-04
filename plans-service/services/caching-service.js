@@ -18,6 +18,19 @@ module.exports = class CachingService {
     let plans = await promisify(this.redisClient.hget).bind(this.redisClient)(getUserKey(userId), this.plansKey)
     return plans ? JSON.parse(plans) : null
   }
+  
+  purgeCache(userId){
+    if (!userId) return Promise.resolve
+    
+    return promisify(this.redisClient.expire).bind(this.redisClient)(getUserKey(userId), 0)
+  }
+  
+  async storePlans(plans, userId){
+    plans = plans || []
+    // Purge cache
+    await this.purgeCache(userId)
+    await promisify(this.redisClient.hset).bind(this.redisClient)(getUserKey(userId), this.plansKey, JSON.stringify(plans))
+  }
 }
 
 function getUserKey(userId) {
